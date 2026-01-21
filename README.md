@@ -6,8 +6,7 @@ O projeto foi construído utilizando tecnologias web modernas e boas práticas d
 
 🖥️ Preview
 
-🔗 Deploy: (adicione o link quando publicar, ex: Vercel / Netlify)
-📂 Repositório: (este repositório)
+🔗 Deploy: https://pedrosodev.vercel.app/
 
 🛠️ Tecnologias Utilizadas
 
@@ -52,7 +51,7 @@ Google Fonts — Tipografia moderna
 
 Clone o repositório:
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/t4dashii/portfolio-front-end.git
 
 
 Acesse a pasta do projeto:
