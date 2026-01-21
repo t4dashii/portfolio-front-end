@@ -1,4 +1,14 @@
 /* ===============================
+   HEADER SCROLL (SOMBRA)
+================================ */
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+
+/* ===============================
    MENU ATIVO POR SCROLL
 ================================ */
 const sections = document.querySelectorAll("section");
@@ -8,17 +18,17 @@ window.addEventListener("scroll", () => {
     let current = "";
 
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 180;
         if (window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
+            current = section.id;
         }
     });
 
     menuLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-        }
+        link.classList.toggle(
+            "active",
+            link.getAttribute("href") === `#${current}`
+        );
     });
 });
 
@@ -26,16 +36,13 @@ window.addEventListener("scroll", () => {
 /* ===============================
    ANIMAÇÕES (IntersectionObserver)
 ================================ */
-const observer = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    },
-    { threshold: 0.2 }
-);
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.2 });
 
 document
     .querySelectorAll("section, .skill-card, .timeline-item")
@@ -46,7 +53,7 @@ document
 
 
 /* ===============================
-   HOVER ELEGANTE (JS)
+   HOVER ELEGANTE
 ================================ */
 document.querySelectorAll(".skill-card").forEach(card => {
     card.addEventListener("mouseenter", () => {
@@ -68,17 +75,38 @@ if (themeBtn) {
     themeBtn.addEventListener("click", () => {
         document.body.classList.toggle("light");
 
-        // salva preferência
-        if (document.body.classList.contains("light")) {
-            localStorage.setItem("theme", "light");
-        } else {
-            localStorage.setItem("theme", "dark");
-        }
+        const theme = document.body.classList.contains("light")
+            ? "light"
+            : "dark";
+
+        localStorage.setItem("theme", theme);
+        themeBtn.textContent = theme === "light" ? "☀️" : "🌙";
     });
+
+    // carrega tema salvo
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+        document.body.classList.add("light");
+        themeBtn.textContent = "☀️";
+    }
 }
 
-// carrega tema salvo
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "light") {
-    document.body.classList.add("light");
+
+/* ===============================
+   MENU HAMBÚRGUER MOBILE
+================================ */
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector(".menu");
+
+if (menuToggle && nav) {
+    menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("active");
+    });
+
+    // fecha menu ao clicar no link
+    menuLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("active");
+        });
+    });
 }

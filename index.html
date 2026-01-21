@@ -7,36 +7,43 @@
     <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
+
+<!-- ADIÇÃO: classe para header fixo + blur -->
 <header>
     <div class="brand">
         <h1>Pedroso</h1>
-        <h3>Desenvolvedor Front-end</h3>
+        <h3>Desenvolvedor Web</h3>
     </div>
 
-    <nav>
-        <ul class="menu">
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#exp">Experiência</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
+    <div class="header-actions">
+        <nav>
+            <ul class="menu">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
 
-    <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
-        <span class="moon">🌙</span>
-    </button>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+
+        <button class="menu-toggle">☰</button>
+    </div>
 </header>
 
-</header>
+
+<!-- REMOÇÃO LÓGICA: header duplicado causava erro -->
+<!-- </header> -->
 
 <main>
 
     <!-- ABOUT -->
-    <section id="sobre" class="about">
+    <!-- ADIÇÃO: classe para animação -->
+    <section id="sobre" class="about animate">
         <div class="about-text">
             <h2>Sobre Mim</h2>
             <p>
-                Sou um desenvolvedor front-end apaixonado por criar interfaces modernas,
+                Sou um desenvolvedor fullstack apaixonado por criar interfaces modernas,
                 acessíveis e performáticas. Trabalho com HTML, CSS, JavaScript e React,
                 sempre focado em boa experiência do usuário e código limpo.
             </p>
@@ -48,62 +55,65 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
-    <h2>Skills & Technologies</h2>
+    <!-- ADIÇÃO: classe animate -->
+    <section id="skills" class="animate">
+        <h2>Habilidades e Tecnologias</h2>
 
-    <div class="skills-grid">
-        <div class="skill-card">
-            <h3>Frontend</h3>
-            <div class="skill-icons">
-                <div class="skill">
-                    <box-icon type='logo' name='html5' size="lg" color="#E34F26"></box-icon>
-                    <span>HTML</span>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Frontend</h3>
+                <div class="skill-icons">
+                    <div class="skill">
+                        <box-icon type='logo' name='html5' size="lg" color="#E34F26"></box-icon>
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill">
+                        <box-icon name='css3' type='logo' size="lg" color="#663399"></box-icon>
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill">
+                        <box-icon name='tailwind-css' type='logo' size="lg" color="#06B6D4"></box-icon>
+                        <span>Tailwind</span>
+                    </div>
+                    <div class="skill">
+                        <box-icon name='javascript' type='logo' size="lg" color="#F7DF1E"></box-icon>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="skill">
+                        <box-icon name='react' type='logo' size="lg" color="#61DAFB"></box-icon>
+                        <span>React</span>
+                    </div>
                 </div>
-                <div class="skill">
-                    <box-icon name='css3' type='logo' size="lg" color="#663399"></box-icon>
-                    <span>CSS</span>
-                </div>
-                <div class="skill">
-                    <box-icon name='tailwind-css' type='logo' size="lg" color="#06B6D4"></box-icon>
-                    <span>Tailwind</span>
-                </div>
-                <div class="skill">
-                    <box-icon name='javascript' type='logo' size="lg" color="#F7DF1E"></box-icon>
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill">
-                    <box-icon name='react' type='logo' size="lg" color="#61DAFB"></box-icon>
-                    <span>React</span>
+            </div>
+
+            <div class="skill-card">
+                <h3>Ferramentas</h3>
+                <div class="skill-icons">
+                    <div class="skill">
+                        <box-icon type='logo' name='git' size="lg" color="#F05032"></box-icon>
+                        <span>Git</span>
+                    </div>
+                    <div class="skill">
+                        <box-icon type='logo' name='github' size="lg" color="#999999"></box-icon>
+                        <span>GitHub</span>
+                    </div>
+                    <div class="skill">
+                        <box-icon name='figma' type='logo' size="lg" color="#F24E1E"></box-icon>
+                        <span>Figma</span>
+                    </div>
+                    <div class="skill">
+                        <img src="assets/icons/vercel.svg" alt="Vercel">
+                        <span>Vercel</span>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="skill-card">
-            <h3>Ferramentas</h3>
-            <div class="skill-icons">
-                <div class="skill">
-                    <box-icon type='logo' name='git' size="lg" color="#F05032"></box-icon>
-                    <span>Git</span>
-                </div>
-                <div class="skill">
-                    <box-icon type='logo' name='github' size="lg" color="#999999"></box-icon>
-                    <span>GitHub</span>
-                </div>
-                <div class="skill">
-                    <box-icon name='figma' type='logo' size="lg" color="#F24E1E"></box-icon>
-                    <span>Figma</span>
-                </div>
-                <div class="skill">
-                    <img src="assets/icons/vercel.svg" alt="Vercel">
-                    <span>Vercel</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
     <!-- EXPERIENCE -->
-    <section id="exp">
-        <h2>Experience</h2>
+    <!-- ADIÇÃO: classe animate -->
+    <section id="exp" class="animate">
+        <h2 class="experiencia">Experiência</h2>
 
         <div class="timeline">
             <div class="timeline-item">
@@ -137,8 +147,8 @@
     <p>© 2026 Pedroso Dev. Todos os direitos reservados.</p>
 </footer>
 
- <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
- <script src="/app.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="/app.js"></script>
 
 </body>
 </html>
